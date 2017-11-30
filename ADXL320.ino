@@ -45,12 +45,16 @@ void loop() {
   pitchNew = analogRead(xpin);                  // get x-axis reading
   rollNew = analogRead(ypin);                   // get y-axis reading
   // 36.5 is almost 178 mV
-  changeP = (rollNew-rollHztl)/36.5;             // working on g [m/s^2]
-  changeR = (pitchNew-pitchHztl)/36.5;           // working on g [m/s^2]
+  changeR = (rollNew-rollHztl)/36.5;             // working on g [m/s^2]
+  changeP = (pitchNew-pitchHztl)/36.5;           // working on g [m/s^2]
   // send values by serial
   Serial.print(changeP);
   Serial.print(",");
-  Serial.print(changeR);
-  Serial.println(";");
+  Serial.println(changeR);
+  //Serial.println(";");
+  // UNCOMMENT FOR 2D PLOT FROM HERE
+  rollHztl = rollNew;
+  pitchHztl = pitchNew;
+  // TO HERE
   delay(100);                                   // Ten times greater than matlab pause
 }
