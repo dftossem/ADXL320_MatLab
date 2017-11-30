@@ -22,7 +22,6 @@ pause
 % Loop (cancel with 'Ctrl+C')
 tic
 i = 1;
-time = [];
 while 1
     data = fscanf(s);
     flushinput(s);
@@ -39,6 +38,5 @@ while 1
     drawnow;
     % Pause for matlab rest
     i = i + 1;
-    pause(0.005);
+    pause(0.01);
 end
-% csvwrite(sFile,data);
